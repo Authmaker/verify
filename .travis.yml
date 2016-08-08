@@ -1,5 +1,14 @@
 sudo: false
 language: node_js
+services: mongodb
 node_js:
-  - '4.2'
-  - '5.0'
+  - 6
+  - 4
+  - 0.12
+  - 0.10
+addons:
+  code_climate:
+    repo_token: 12f0a766c304694c37434bf11e62f76f87108c8d6db210ceac66bfcb0ad95c3e
+script: npm run coverage
+after_script:
+  - codeclimate-test-reporter < coverage/lcov.info
